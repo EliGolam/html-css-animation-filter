@@ -288,7 +288,7 @@ header > .flex > .logo { max-width: 12rem; }
     content: '';
     width: var(--transparent-box-size);
     height: var(--transparent-box-size);
-    border-radius: 50%;
+    border-radius: 45%;
 
     position: absolute;
 
