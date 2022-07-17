@@ -1,0 +1,207 @@
+/* Root pseudoclass custom properties: https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties */
+/* These are some generic design choices for colour schemes, fonts and backgrounds */
+:root {
+    /* Website Color Scheme */
+    --clr-primary: rgb(216, 42, 36);
+    --clr-secondary: rgb(66, 228, 179);
+
+    --clr-neutral-white: rgba(246, 242, 233, 1);
+    --clr-neutral-black: rgba(25, 25, 25, 1);
+    --clr-neutral-grey: rgb(234, 237, 240);
+
+    --clr-neutral-red: rgb(253, 56, 49);
+
+    --fontfamily-primary: 'Roboto', Arial, Helvetica, sans-serif;
+    --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Free";
+    --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
+
+    --fontweight-thin: 200;
+    --fontweight-normal: 400;
+    --fontweight-heavy: 700;
+
+    --fontsize-small: 0.7rem;
+    --fontsize-normal: 1.1rem;
+    --fontsize-large: 2rem;
+    --fontsize-title: 3rem;
+
+    --gap: 1rem;
+    --flow-spacer: 3rem;
+    --content-width: 900px;
+    --general-gap: 1rem;
+}
+
+/* COMPOSITION: Macrolevel design choises that defines the skeleton of the webpage and basic composition within components */
+/* Page Layout choices */
+body { font:  var(--fontweight-normal) var(--fontsize-normal) var(--fontfamily-primary); }
+
+
+/* Component Layout choices */
+
+/* UTILITIES: One job, done well. It performs one logical job: formatting, design, shape, font and element colours  */
+.icon::before, 
+.icon::after { 
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;  
+
+    font: var(--fa-font-solid);
+}
+
+.social-links > .icon::before,
+.social-links > .icon::after {
+    font: var(--fa-font-brands);
+}
+
+.flex { display: flex; }
+.flex-column { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+
+.content-width { max-width: var(--content-width); margin: 0 auto;}
+.flow > *:not(:first-child) { margin-top: var(--flow-spacer);}
+
+.square { width: 100px; height: 100px; border: 2px solid var(--clr-neutral-red); }
+
+/* Color schemes divided into scalable Design Tokens: allows to apply a specific set of colours without repetition */
+.background-light { background-color: var(--clr-neutral-white); }
+
+.background-dark { background-color: var(--clr-neutral-black); }
+
+.background-grey { background-color: var(--clr-neutral-grey); } 
+
+.background-primary { background-color: var(--clr-primary);}
+
+.background-secondary { background-color: var(--clr-secondary);}
+
+.background-red { background-color: var(--clr-neutral-red);}
+
+.text-colour-dark {color: var(--clr-neutral-black);}
+
+.text-colour-light {color: var(--clr-neutral-white); }
+
+/* BLOCKS: component specific rules */
+header > .flex {
+    justify-content: space-evenly;
+    align-items: center;
+    column-gap: 2rem;
+
+    padding: var(--general-gap);
+}
+
+header > .flex > .logo { max-width: 12rem; }
+
+.exercise-box { padding: var(--general-gap); min-height: 150px; align-items: center;} 
+
+.element > img { max-width: 500px; height: auto;}
+
+/* EXERCISE */
+/* Exercise 1 */
+.exercise-1 .element {
+    background-color: transparent;
+    transition: background-color 1000ms;
+}
+
+.exercise-1 .element:hover {
+    background-color: var(--clr-neutral-red);
+}
+
+/* Exercise 2 */
+.exercise-2 .element {
+    transition: width 1500ms;
+}
+
+.exercise-2 .element:active {
+    width: 100%;
+}
+
+/* Exercise 3 */
+.exercise-3 .element {
+    transition: border-radius 500ms;
+}
+
+.exercise-3 .element:hover {
+    border-radius: 50%;
+}
+
+/* Exercise 4 */
+.exercise-4 .element {
+    transition: background-color 500ms ease-in, border-color 500ms ease-in;
+}
+
+.exercise-4 .element:hover {
+    border-color: transparent;
+    background-color: transparent;
+}
+
+/* Exercise 5 */
+.exercise-5 .exercise-box {
+    position: relative;
+    align-items: center;    
+}
+
+.exercise-5 .element {
+    width: 50px;
+    height: 50px;
+
+    position: absolute;
+        left: 3rem;
+
+    transition: transform 500ms;
+}
+
+.exercise-5 .element:hover {
+    transform: scale(2.3);
+}
+
+/* Exercise 6 */
+.exercise-6 .element {
+    transition: filter 500ms;
+}
+
+.exercise-6 .element:hover {
+    filter: grayscale(100%);
+}
+
+/* Exercise 7 */
+.exercise-7 .element {
+    transition: filter 1000ms;
+}
+
+.exercise-7 .element:hover {
+    filter: sepia(80%);
+}
+
+/* Exercise 8 */
+.exercise-8 .element {
+    transition: filter 1000ms, border-radius 500ms ease-in;
+    overflow: hidden;
+}
+
+.exercise-8 .element:hover {
+    filter: sepia(80%);
+    border-radius: 20px;
+}
+
+/* Exercise 9 */
+.exercise-9 img { 
+    max-width: 600px; 
+    
+}
+
+.exercise-9 .element {
+    overflow: hidden;
+    transform: scale(.5);
+    transition: transform 2000ms, filter 1000ms, border-radius 500ms ease-in;
+}
+
+.exercise-9 .element:hover {
+    filter: sepia(80%);
+    border-radius: 20px;
+    transform: scale(1);
+    
+}
+
+
+/* MEDIA QUERIES */
+@media only screen and (max-width:700px) {
+  
+}
