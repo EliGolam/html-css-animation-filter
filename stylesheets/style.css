@@ -28,6 +28,10 @@
     --flow-spacer: 3rem;
     --content-width: 900px;
     --general-gap: 1rem;
+
+    --transparent-box-size: 40px;
+    --transparent-box-size-half: 20px;
+    --transparent-box-size-half-neg: -20px;
 }
 
 /* COMPOSITION: Macrolevel design choises that defines the skeleton of the webpage and basic composition within components */
@@ -271,6 +275,7 @@ header > .flex > .logo { max-width: 12rem; }
 .exercise-13 .element {
     font-size: var(--fontsize-large);
     padding: 1.5rem 5rem;
+    margin: var(--transparent-box-size-half);
     border: 4px solid var(--clr-neutral-black);
     position: relative;
 
@@ -281,8 +286,8 @@ header > .flex > .logo { max-width: 12rem; }
 .exercise-13 .element::before,
 .exercise-13 .element::after {
     content: '';
-    width: 30px;
-    height: 30px;
+    width: var(--transparent-box-size);
+    height: var(--transparent-box-size);
     border-radius: 50%;
 
     position: absolute;
@@ -307,76 +312,76 @@ header > .flex > .logo { max-width: 12rem; }
 
 
 .exercise-13 .element::before {
-    top: -15px;
-    left: 15px;
+    top: var(--transparent-box-size-half-neg);
+    left: var(--transparent-box-size-half);
 }
 
 .exercise-13 .element::after {
-    bottom: -15px;
-    right: 15px;
+    bottom: var(--transparent-box-size-half-neg);
+    right: var(--transparent-box-size-half);
 } 
 
 @keyframes rotating-box-1 {
     0% {
-        top: -15px;
-        left: 15px;
+        top: var(--transparent-box-size-half-neg);
+        left: var(--transparent-box-size-half);
     }
 
-    28% {
-        top: -15px;
-        left: calc(100% - 15px);
+    31% {
+        top: var(--transparent-box-size-half-neg);
+        left: calc(100% - var(--transparent-box-size-half));
     }
 
-    45% {
-        top: calc(100% - 15px);
-        left: calc(100% - 15px);
+    46% {
+        top: calc(100% - var(--transparent-box-size-half));
+        left: calc(100% - var(--transparent-box-size-half));
     }
 
-    78% {
-        top: calc(100% - 15px);
-        left: -15px;
+    81% {
+        top: calc(100% - var(--transparent-box-size-half));
+        left: var(--transparent-box-size-half-neg);
     }
 
-    95% {
-        top: -15px;
-        left: -15px;
+    96% {
+        top: var(--transparent-box-size-half-neg);
+        left: var(--transparent-box-size-half-neg);
     }
 
     100% {
-        top: -15px;
-        left: 15px;
+        top: var(--transparent-box-size-half-neg);
+        left: var(--transparent-box-size-half);
     }
 }
 
 @keyframes rotating-box-2 {
     0% {
-        bottom: -15px;
-        right: 15px;
+        bottom: var(--transparent-box-size-half-neg);
+        right: var(--transparent-box-size-half);
     }
 
     28% {
-        bottom: -15px;
-        right: calc(100% - 15px);
+        bottom: var(--transparent-box-size-half-neg);
+        right: calc(100% - var(--transparent-box-size-half));
     }
 
     45% {
-        bottom: calc(100% - 15px);
-        right: calc(100% - 15px);
+        bottom: calc(100% - var(--transparent-box-size-half));
+        right: calc(100% - var(--transparent-box-size-half));
     }
 
     78% {
-        bottom: calc(100% - 15px);
-        right: -15px;
+        bottom: calc(100% - var(--transparent-box-size-half));
+        right: var(--transparent-box-size-half-neg);
     }
 
     95% {
-        bottom: -15px;
-        right: -15px;
+        bottom: var(--transparent-box-size-half-neg);
+        right: var(--transparent-box-size-half-neg);
     }
 
     100% {
-        bottom: -15px;
-        right: 15px;
+        bottom: var(--transparent-box-size-half-neg);
+        right: var(--transparent-box-size-half);
     }
 }
 
