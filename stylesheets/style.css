@@ -226,6 +226,160 @@ header > .flex > .logo { max-width: 12rem; }
     animation: spin-hover 1500ms ease-in-out;
 }
 
+/* Exercise 12 */ 
+.exercise-12 .element {
+    font-size: var(--fontsize-large);
+
+    padding: 1.5rem 5rem;
+    border: 4px solid var(--clr-neutral-black);
+
+    cursor: pointer;
+    position: relative;
+}
+
+.exercise-12 .element::before,
+.exercise-12 .element::after {
+    content: '';
+    width: 65px;
+    height: 7px;
+    
+    background-color: var(--clr-neutral-grey);
+    transition: left 800ms ease-in-out, right 800ms ease-in-out;
+}
+
+.exercise-12 .element::before {
+    position: absolute;
+        bottom: 85px;
+        left: 15px;
+}
+
+.exercise-12 .element::after {
+    position: absolute;
+        top: 85px;
+        right: 15px;
+}
+
+.exercise-12 .element:hover::before{
+    left: calc(100% - 80px);
+}
+
+.exercise-12 .element:hover::after{
+    right: calc(100% - 80px);
+}
+
+/* Exercise 13 */
+.exercise-13 .element {
+    font-size: var(--fontsize-large);
+    padding: 1.5rem 5rem;
+    border: 4px solid var(--clr-neutral-black);
+    position: relative;
+
+    transition: border-color 1800ms ease-in-out, color 900ms ease-in-out 900ms;
+    cursor: pointer;
+}
+
+.exercise-13 .element::before,
+.exercise-13 .element::after {
+    content: '';
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+
+    position: absolute;
+
+    background-color: var(--clr-neutral-grey);
+}
+
+.exercise-13 .element:hover {
+    border-color: var(--clr-secondary);
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    color: var(--clr-secondary);
+}
+
+.exercise-13 .element:hover::before {
+    animation: rotating-box-1 3600ms linear infinite;
+}
+
+.exercise-13 .element:hover::after {
+    animation: rotating-box-2 3600ms linear infinite;
+}
+
+
+.exercise-13 .element::before {
+    top: -15px;
+    left: 15px;
+}
+
+.exercise-13 .element::after {
+    bottom: -15px;
+    right: 15px;
+} 
+
+@keyframes rotating-box-1 {
+    0% {
+        top: -15px;
+        left: 15px;
+    }
+
+    28% {
+        top: -15px;
+        left: calc(100% - 15px);
+    }
+
+    45% {
+        top: calc(100% - 15px);
+        left: calc(100% - 15px);
+    }
+
+    78% {
+        top: calc(100% - 15px);
+        left: -15px;
+    }
+
+    95% {
+        top: -15px;
+        left: -15px;
+    }
+
+    100% {
+        top: -15px;
+        left: 15px;
+    }
+}
+
+@keyframes rotating-box-2 {
+    0% {
+        bottom: -15px;
+        right: 15px;
+    }
+
+    28% {
+        bottom: -15px;
+        right: calc(100% - 15px);
+    }
+
+    45% {
+        bottom: calc(100% - 15px);
+        right: calc(100% - 15px);
+    }
+
+    78% {
+        bottom: calc(100% - 15px);
+        right: -15px;
+    }
+
+    95% {
+        bottom: -15px;
+        right: -15px;
+    }
+
+    100% {
+        bottom: -15px;
+        right: 15px;
+    }
+}
+
 /* MEDIA QUERIES */
 @media only screen and (max-width:700px) {
   
