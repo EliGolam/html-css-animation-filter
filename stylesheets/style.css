@@ -196,10 +196,35 @@ header > .flex > .logo { max-width: 12rem; }
 .exercise-9 .element:hover {
     filter: sepia(80%);
     border-radius: 20px;
-    transform: scale(1);
-    
+    transform: scale(1);    
 }
 
+/* Esercizio 10 */
+@keyframes spin {
+    100% { transform: rotate(1turn);}
+}
+
+.exercise-10 .icon::after {
+    content: '\f1ce';
+    font-size: var(--fontsize-title);
+    animation: spin 1500ms infinite linear;
+}
+
+/* Esercizio 11 */
+@keyframes spin-hover {
+    0% { transform: rotate(0deg);}
+    50% { transform: rotate(270deg);}
+    100% { transform: rotate(0deg);}
+}
+
+.exercise-11 .icon::after {
+    content: '\f1ce';
+    font-size: var(--fontsize-title);
+}
+
+.exercise-11 .icon:hover {
+    animation: spin-hover 1500ms ease-in-out;
+}
 
 /* MEDIA QUERIES */
 @media only screen and (max-width:700px) {
