@@ -38,7 +38,6 @@
 /* Page Layout choices */
 body { font:  var(--fontweight-normal) var(--fontsize-normal) var(--fontfamily-primary); }
 
-
 /* Component Layout choices */
 
 /* UTILITIES: One job, done well. It performs one logical job: formatting, design, shape, font and element colours  */
@@ -64,6 +63,8 @@ body { font:  var(--fontweight-normal) var(--fontsize-normal) var(--fontfamily-p
 .flow > *:not(:first-child) { margin-top: var(--flow-spacer);}
 
 .square { width: 100px; height: 100px; border: 2px solid var(--clr-neutral-red); }
+
+main.content-width {margin-bottom: 4rem;}
 
 /* Color schemes divided into scalable Design Tokens: allows to apply a specific set of colours without repetition */
 .background-light { background-color: var(--clr-neutral-white); }
