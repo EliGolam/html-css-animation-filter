@@ -138,22 +138,22 @@ header > .flex > .logo { max-width: 12rem; }
 
 /* Exercise 5 */
 .exercise-5 .exercise-box {
-    position: relative;
     align-items: center;    
 }
 
 .exercise-5 .element {
     width: 50px;
     height: 50px;
-
-    position: absolute;
-        left: 3rem;
-
+    margin: 3rem;
     transition: transform 500ms;
 }
 
 .exercise-5 .element:hover {
     transform: scale(2.3);
+}
+
+.exercise-5 .element:active {
+    transform: scale(.5);
 }
 
 /* Exercise 6 */
@@ -171,7 +171,7 @@ header > .flex > .logo { max-width: 12rem; }
 }
 
 .exercise-7 .element:hover {
-    filter: sepia(80%);
+    filter: sepia(80%) grayscale(20%);
 }
 
 /* Exercise 8 */
@@ -181,7 +181,7 @@ header > .flex > .logo { max-width: 12rem; }
 }
 
 .exercise-8 .element:hover {
-    filter: sepia(80%);
+    filter: sepia(60%) saturate(90%);
     border-radius: 20px;
 }
 
@@ -205,7 +205,7 @@ header > .flex > .logo { max-width: 12rem; }
 
 /* Esercizio 10 */
 @keyframes spin {
-    100% { transform: rotate(1turn);}
+    100% { transform: rotate(-360deg);}
 }
 
 .exercise-10 .icon::after {
@@ -216,9 +216,9 @@ header > .flex > .logo { max-width: 12rem; }
 
 /* Esercizio 11 */
 @keyframes spin-hover {
-    0% { transform: rotate(0deg);}
-    50% { transform: rotate(270deg);}
-    100% { transform: rotate(0deg);}
+    0% { transform: rotate(0);}
+    80% { transform: rotate(.75turn);}
+    100% { transform: rotate(0);}
 }
 
 .exercise-11 .icon::after {
@@ -227,7 +227,7 @@ header > .flex > .logo { max-width: 12rem; }
 }
 
 .exercise-11 .icon:hover {
-    animation: spin-hover 1500ms ease-in-out;
+    animation: spin-hover 1500ms cubic-bezier(.55,.06,.68,.19);
 }
 
 /* Exercise 12 */ 
@@ -248,7 +248,6 @@ header > .flex > .logo { max-width: 12rem; }
     height: 7px;
     
     background-color: var(--clr-neutral-grey);
-    transition: left 800ms ease-in-out, right 800ms ease-in-out;
 }
 
 .exercise-12 .element::before {
@@ -263,12 +262,29 @@ header > .flex > .logo { max-width: 12rem; }
         right: 15px;
 }
 
+.exercise-12 .element:hover {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
 .exercise-12 .element:hover::before{
-    left: calc(100% - 80px);
+    animation: top-border 1600ms ease-in-out;
 }
 
 .exercise-12 .element:hover::after{
-    right: calc(100% - 80px);
+    animation: bottom-border 1600ms ease-in-out;
+}
+
+@keyframes top-border {
+    0% { left: 15px; }
+    50% { left: calc(100% - 80px); }
+    100% { left: 15px; }
+}
+
+@keyframes bottom-border {
+    0% { right: 15px; }
+    50% { right: calc(100% - 80px); }
+    100% { right: 15px; }
 }
 
 /* Exercise 13 */
@@ -303,11 +319,11 @@ header > .flex > .logo { max-width: 12rem; }
 }
 
 .exercise-13 .element:hover::before {
-    animation: rotating-box-1 3600ms linear infinite;
+    animation: rotating-border-1 3600ms linear infinite;
 }
 
 .exercise-13 .element:hover::after {
-    animation: rotating-box-2 3600ms linear infinite;
+    animation: rotating-border-2 3600ms linear infinite;
 }
 
 
@@ -321,7 +337,7 @@ header > .flex > .logo { max-width: 12rem; }
     right: var(--transparent-box-size-half);
 } 
 
-@keyframes rotating-box-1 {
+@keyframes rotating-border-1 {
     0% {
         top: var(--transparent-box-size-half-neg);
         left: var(--transparent-box-size-half);
@@ -353,7 +369,7 @@ header > .flex > .logo { max-width: 12rem; }
     }
 }
 
-@keyframes rotating-box-2 {
+@keyframes rotating-border-2 {
     0% {
         bottom: var(--transparent-box-size-half-neg);
         right: var(--transparent-box-size-half);
